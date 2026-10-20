@@ -55,11 +55,24 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;    // this creates a variable named counter and sets its value to zero(0)
-
+  bool _countByFive = false; 
+  int get _step => _countByFive ? 5 : 1;
+  
+  
+  
+  
+  
+  
+  // _countByFive = false; this means the variable can hold either true or false
+  //_countByFive records whether counting by five is enabled.
+  //false means the switch is initially off,When the switch is off, we want the counter to change by 1.
+  // When the switch is on (true), we want it to change by 5. .
+  // The ? : syntax is called the ternary operator. It checks a condition and chooses one of two values.
+  // for more understanding If _countByFive is true, use 5.Otherwise, use 1.
   void _incrementCounter() {
     setState(() {
-      //the setstate tells flutter to rebuild the screen because the value has changed
-      
+      //setState tells flutter to rebuild the screen because the value has changed
+
 
       _counter++;  //increases the number by +1
     });
