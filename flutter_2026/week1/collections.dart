@@ -13,10 +13,18 @@ void collections() {
     'Alice': 25,
     'Bob': 30,
     'Charlie': 35,
+    'Abbasi': 28, // here we Added another person to the map
   };
-  print(ages['Alice']); // Output: 25
-  print(ages['Bob']); // Output: 30
-  print(ages['Charlie']); // Output: 35
+
+  print(ages['Alice']); // Output age is  25
+  print(ages['Bob']); // Output age is  30
+  print(ages['Charlie']); // Output age is  35
+  print(ages['Abbasi']); // Output age is  28`
+
+  // Print each person's name and age
+  for (var entry in ages.entries) {
+    print('${entry.key}: ${entry.value}');
+  }
 }
 
 void main() {
