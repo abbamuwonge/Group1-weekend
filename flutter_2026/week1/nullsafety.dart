@@ -1,29 +1,36 @@
+
 // Run me with:  dart run nullsafety.dart
 
-// A function that might return null (e.g. a user who hasn't set a nickname)
+// This function looks for a nickname.
+// It returns null if the name has no nickname.
 String? findNickname(String name) {
   if (name == 'Alice') return 'Al';
-  return null;
+  return null; // No nickname was found
 }
 
 void nullsafety() {
-  String? nickname = findNickname('Bob'); // the ? means "this can be null"
-  // String nickname2 = null; // ERROR: non-nullable types can't be null
+  String? nickname = findNickname('Bob'); // Bob has no nickname
+  // String nickname2 = null; // This gives an error because String cannot be null
 
-  // Safe access
-  print(nickname?.length); // ?. means "only call this if not null" -> prints null
+  // Check the nickname length only if it is not null
+  print(nickname?.length); // Prints null because Bob has no nickname
 
-  // Give a fallback if null
-  String displayName = nickname ?? 'Anonymous'; // ?? means "use this if left side is null"
-  print(displayName); // Anonymous
+  // Use Anonymous if no nickname is found
+  String displayName = nickname ?? 'Anonymous';
+  print(displayName); // Prints Anonymous
 
   nickname = findNickname('Alice');
 
-  // Check for null first, and inside the if Dart knows nickname is a String,
-  // so we can use .length directly (this is called "type promotion")
+  // Check if the nickname exists before using it
   if (nickname != null) {
-    print(nickname.length); // 2
+    print(nickname.length); // Prints 2
   }
+
+  //Tried finding a nickname using my name
+  String? myNickname = findNickname('Abbasi');
+
+  // Print a message if no nickname is found
+  print(myNickname ?? 'No nickname found'); //its will print this because my name has no nickname
 }
 
 void main() {
