@@ -36,3 +36,10 @@ void nullsafety() {
 void main() {
   nullsafety();
 }
+
+
+//null means there is no value.
+//String? means the variable can store text or null.
+//?. checks that a value is not null before using it.
+//?? gives another value when the first value is null.
+//if (nickname != null) checks that a nickname exists before printing its length.
